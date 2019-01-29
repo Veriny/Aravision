@@ -14,6 +14,8 @@ public class TeleOPLift {
     public TeleOPLift(DcMotor lift, Servo hooker) {
         this.lyft = lift;
         this.servo = hooker;
+
+        stop();
     }
     public void c(Gamepad p){
         if(p.dpad_up){up();}
@@ -37,5 +39,7 @@ public class TeleOPLift {
     }
     public void maxPos() {servoPuff(MAX_POS);}
     public void mixPos() {servoPuff(MIN_POS);}
-
+    public void stop() {
+        lyft.setPower(0);
+    }
 }

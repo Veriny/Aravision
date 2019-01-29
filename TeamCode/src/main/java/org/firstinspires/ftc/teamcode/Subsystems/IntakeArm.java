@@ -13,14 +13,24 @@ public class IntakeArm {
     public static final double POWER = 1;
     public DcMotor PseudoServo;
     public Servo s;
-    public IntakeArm(DcMotor x, Servo y) {
-        this.PseudoServo = x;
-        this.s = y;
+    public IntakeArm(DcMotor pseudoArm, Servo arm) {
+        this.PseudoServo = pseudoArm;
+        this.s = arm;
         PseudoServo.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        stop();
     }
 
     public void c(Gamepad p) {
-
+        if(p.a && !p.b) {
+            yeet();
+            resetEncoders();
+        } else if (p.b) {
+            yoink();
+            resetEncoders();
+        }
+        if(p.x && !p.y) boi();
+        else if (p.y) buddy();
     }
 
     public void yeet(){
@@ -46,5 +56,9 @@ public class IntakeArm {
 
     public void resetEncoders(){
         PseudoServo.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    }
+
+    public void stop(){
+        PseudoServo.setPower(0);
     }
 }
