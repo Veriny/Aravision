@@ -1,15 +1,12 @@
 package org.firstinspires.ftc.teamcode.TeleOP;
 
-import android.app.Activity;
-import android.view.KeyEvent;
-
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Subsystems.Dump;
 import org.firstinspires.ftc.teamcode.Subsystems.Intake;
 import org.firstinspires.ftc.teamcode.Subsystems.IntakeArm;
-import org.firstinspires.ftc.teamcode.Subsystems.Keyboard;
+import org.firstinspires.ftc.robotcontroller.internal.Yeetboard;
 import org.firstinspires.ftc.teamcode.Subsystems.TeleOPLift;
 import org.firstinspires.ftc.teamcode.Subsystems.WestCoast;
 
@@ -24,7 +21,6 @@ public class WestCoastTeleOP extends OpMode{
     public IntakeArm inArm;
     public Intake inSystem;
     public Dump dumptruck;
-    public Keyboard keyboard;
 
     @Override
     public void init() {
@@ -33,7 +29,6 @@ public class WestCoastTeleOP extends OpMode{
 //        inArm = new IntakeArm(hardwareMap.dcMotor.get("pseudoArm"), hardwareMap.servo.get("arm"));
 //        inSystem = new Intake(hardwareMap.dcMotor.get("brush"));
 //        dumptruck = new  Dump(hardwareMap.servo.get("output"));
-        keyboard = new Keyboard(telemetry);
         robot.stop();
 
     }
@@ -46,6 +41,9 @@ public class WestCoastTeleOP extends OpMode{
 
     @Override
     public void loop() {
+        if (Yeetboard.w){
+            robot.rightMotorOne.setPower(1);
+        }
         //KeyboardOP
 //        robot.rightMotorOne.setPower((gamepad1.left_stick_y + gamepad1.right_stick_x));
 //        robot.leftMotorOne.setPower((gamepad1.left_stick_y - gamepad1.right_stick_x));

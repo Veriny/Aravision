@@ -50,6 +50,7 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -122,6 +123,7 @@ import org.firstinspires.inspection.RcInspectionActivity;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+
 
 @SuppressWarnings("WeakerAccess")
 public class FtcRobotControllerActivity extends Activity
@@ -734,6 +736,11 @@ public class FtcRobotControllerActivity extends Activity
       motionDetection = null;
     }
   }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+          Yeetboard.keyAct(keyCode, event);
+          return true;
+    }
 
   @Override
   public void onUserInteraction() {
