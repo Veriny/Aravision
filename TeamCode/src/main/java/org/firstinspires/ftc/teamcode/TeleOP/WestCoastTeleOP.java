@@ -28,11 +28,11 @@ public class WestCoastTeleOP extends OpMode{
 
     @Override
     public void init() {
-        robot = new WestCoast(hardwareMap.dcMotor.get("rFront"), hardwareMap.dcMotor.get("rBack"), hardwareMap.dcMotor.get("lFront"), hardwareMap.dcMotor.get("lBack"));
-        lift = new TeleOPLift(hardwareMap.dcMotor.get("lift"), hardwareMap.servo.get("hooker"));
-        inArm = new IntakeArm(hardwareMap.dcMotor.get("pseudoArm"), hardwareMap.servo.get("arm"));
-        inSystem = new Intake(hardwareMap.dcMotor.get("brush"));
-        dumptruck = new  Dump(hardwareMap.servo.get("output"));
+//        robot = new WestCoast(hardwareMap.dcMotor.get("rFront"), hardwareMap.dcMotor.get("rBack"), hardwareMap.dcMotor.get("lFront"), hardwareMap.dcMotor.get("lBack"));
+//        lift = new TeleOPLift(hardwareMap.dcMotor.get("lift"), hardwareMap.servo.get("hooker"));
+//        inArm = new IntakeArm(hardwareMap.dcMotor.get("pseudoArm"), hardwareMap.servo.get("arm"));
+//        inSystem = new Intake(hardwareMap.dcMotor.get("brush"));
+//        dumptruck = new  Dump(hardwareMap.servo.get("output"));
         keyboard = new Keyboard(telemetry);
         robot.stop();
 
@@ -58,10 +58,10 @@ public class WestCoastTeleOP extends OpMode{
     }
 
     public void stop() {
-        robot.stop();
-        lift.stop();
-        inArm.stop();
-        inSystem.stop();
-        dumptruck.reset();
+//        robot.stop();
+//        lift.stop();
+//        inArm.stop();
+//        inSystem.stop();
+//        dumptruck.reset();
     }
 }

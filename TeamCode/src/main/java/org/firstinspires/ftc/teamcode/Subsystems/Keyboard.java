@@ -29,4 +29,7 @@ public class Keyboard extends Activity{
                 return super.onKeyDown(keyCode, event);
         }
     }
+    public void run(){
+
+    }
 }
