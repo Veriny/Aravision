@@ -9,7 +9,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Subsystems.Dump;
 import org.firstinspires.ftc.teamcode.Subsystems.Intake;
 import org.firstinspires.ftc.teamcode.Subsystems.IntakeArm;
-import org.firstinspires.ftc.teamcode.Subsystems.Keyboard;
 import org.firstinspires.ftc.teamcode.Subsystems.TeleOPLift;
 import org.firstinspires.ftc.teamcode.Subsystems.WestCoast;
 
@@ -24,16 +23,14 @@ public class WestCoastTeleOP extends OpMode{
     public IntakeArm inArm;
     public Intake inSystem;
     public Dump dumptruck;
-    public Keyboard keyboard;
 
     @Override
     public void init() {
-//        robot = new WestCoast(hardwareMap.dcMotor.get("rFront"), hardwareMap.dcMotor.get("rBack"), hardwareMap.dcMotor.get("lFront"), hardwareMap.dcMotor.get("lBack"));
-//        lift = new TeleOPLift(hardwareMap.dcMotor.get("lift"), hardwareMap.servo.get("hooker"));
-//        inArm = new IntakeArm(hardwareMap.dcMotor.get("pseudoArm"), hardwareMap.servo.get("arm"));
-//        inSystem = new Intake(hardwareMap.dcMotor.get("brush"));
-//        dumptruck = new  Dump(hardwareMap.servo.get("output"));
-        keyboard = new Keyboard(telemetry);
+        robot = new WestCoast(hardwareMap.dcMotor.get("rFront"), hardwareMap.dcMotor.get("rBack"), hardwareMap.dcMotor.get("lFront"), hardwareMap.dcMotor.get("lBack"));
+        lift = new TeleOPLift(hardwareMap.dcMotor.get("lift"), hardwareMap.servo.get("hooker"));
+        inArm = new IntakeArm(hardwareMap.dcMotor.get("pseudoArm"), hardwareMap.servo.get("arm"));
+        inSystem = new Intake(hardwareMap.dcMotor.get("brush"));
+        dumptruck = new  Dump(hardwareMap.servo.get("output"));
         robot.stop();
 
     }
@@ -47,14 +44,14 @@ public class WestCoastTeleOP extends OpMode{
     @Override
     public void loop() {
         //KeyboardOP
-//        robot.rightMotorOne.setPower((gamepad1.left_stick_y + gamepad1.right_stick_x));
-//        robot.leftMotorOne.setPower((gamepad1.left_stick_y - gamepad1.right_stick_x));
-//        robot.rightMotorTwo.setPower((gamepad1.left_stick_y + gamepad1.right_stick_x));
-//        robot.leftMotorTwo.setPower((gamepad1.left_stick_y - gamepad1.right_stick_x));
-//        lift.c(gamepad2);
-//        inArm.c(gamepad1);
-//        inSystem.c(gamepad1);
-//        dumptruck.c(gamepad2);
+        robot.rightMotorOne.setPower((gamepad1.left_stick_y + gamepad1.right_stick_x));
+        robot.leftMotorOne.setPower((gamepad1.left_stick_y - gamepad1.right_stick_x));
+        robot.rightMotorTwo.setPower((gamepad1.left_stick_y + gamepad1.right_stick_x));
+        robot.leftMotorTwo.setPower((gamepad1.left_stick_y - gamepad1.right_stick_x));
+        lift.c(gamepad2);
+        inArm.c(gamepad1);
+        inSystem.c(gamepad1);
+        dumptruck.c(gamepad2);
     }
 
     public void stop() {

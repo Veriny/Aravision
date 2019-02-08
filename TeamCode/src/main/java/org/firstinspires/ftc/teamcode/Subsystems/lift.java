@@ -8,12 +8,14 @@ import static android.os.SystemClock.sleep;
 
 public class lift {
     public  DcMotor l;
+    public DcMotor l1;
     public  Servo hook;
     static final double     COUNTS_PER_MOTOR_REV = 1440 ;
     static final double DISTANCE_TO_TRAVEL = 5.7;
-    public lift(DcMotor lifter, Servo hooker){
+    public lift(DcMotor lifter, DcMotor lifter2, Servo hooker){
         this.l = lifter;
         this.hook = hooker;
+        this.l1 = lifter2;
         lifter.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
     public void unhook(){
