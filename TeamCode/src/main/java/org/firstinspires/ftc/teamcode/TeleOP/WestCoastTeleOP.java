@@ -28,12 +28,12 @@ public class WestCoastTeleOP extends OpMode{
 
     @Override
     public void init() {
-//        robot = new WestCoast(hardwareMap.dcMotor.get("rFront"), hardwareMap.dcMotor.get("rBack"), hardwareMap.dcMotor.get("lFront"), hardwareMap.dcMotor.get("lBack"));
+        robot = new WestCoast(hardwareMap.dcMotor.get("rFront"), hardwareMap.dcMotor.get("rBack"), hardwareMap.dcMotor.get("lFront"), hardwareMap.dcMotor.get("lBack"));
 //        lift = new TeleOPLift(hardwareMap.dcMotor.get("lift"), hardwareMap.servo.get("hooker"));
-//        inArm = new IntakeArm(hardwareMap.dcMotor.get("pseudoArm"), hardwareMap.servo.get("arm"));
+//        inArm = new IntakeArm(hardwareMap.dcMotor.get("pseudoArm"), hardwareMap.servo.get("a"));
 //        inSystem = new Intake(hardwareMap.dcMotor.get("brush"));
-//        dumptruck = new  Dump(hardwareMap.servo.get("output"));
-        keyboard = new Keyboard(telemetry);
+        dumptruck = new Dump(hardwareMap.servo.get("output"), hardwareMap.servo.get("pepega"));
+//        keyboard = new Keyboard(telemetry);
         robot.stop();
 
     }
@@ -47,14 +47,14 @@ public class WestCoastTeleOP extends OpMode{
     @Override
     public void loop() {
         //KeyboardOP
-//        robot.rightMotorOne.setPower((gamepad1.left_stick_y + gamepad1.right_stick_x));
-//        robot.leftMotorOne.setPower((gamepad1.left_stick_y - gamepad1.right_stick_x));
-//        robot.rightMotorTwo.setPower((gamepad1.left_stick_y + gamepad1.right_stick_x));
-//        robot.leftMotorTwo.setPower((gamepad1.left_stick_y - gamepad1.right_stick_x));
+        robot.rightMotorOne.setPower((gamepad1.left_stick_y + gamepad1.right_stick_x));
+        robot.leftMotorOne.setPower((gamepad1.left_stick_y - gamepad1.right_stick_x));
+        robot.rightMotorTwo.setPower((gamepad1.left_stick_y + gamepad1.right_stick_x));
+        robot.leftMotorTwo.setPower((gamepad1.left_stick_y - gamepad1.right_stick_x));
 //        lift.c(gamepad2);
 //        inArm.c(gamepad1);
 //        inSystem.c(gamepad1);
-//        dumptruck.c(gamepad2);
+        dumptruck.c(gamepad2);
     }
 
     public void stop() {

@@ -7,12 +7,14 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class TeleOPLift {
     public DcMotor lyft;
     public Servo servo;
+    public DcMotor uber;
     public static final int LIFT_POWER = 1;
     public static final double MIN_POS = 1;
     public static final double MAX_POS = 0;
     public static final double SHHHHHHH_GOODNIGHT_SWEET_PRINCE = 0;
-    public TeleOPLift(DcMotor lift, Servo hooker) {
+    public TeleOPLift(DcMotor lift, DcMotor lift2, Servo hooker) {
         this.lyft = lift;
+        this.uber = lift2;
         this.servo = hooker;
 
         stop();
@@ -30,8 +32,10 @@ public class TeleOPLift {
             }
         }
     }
-    public void up(){ lyft.setPower(LIFT_POWER); }
-    public void down() { lyft.setPower(-LIFT_POWER);}
+    public void up(){ lyft.setPower(LIFT_POWER);
+    uber.setPower(LIFT_POWER);}
+    public void down() { lyft.setPower(-LIFT_POWER);
+    uber.setPower(-LIFT_POWER);}
     public void off() {lyft.setPower(SHHHHHHH_GOODNIGHT_SWEET_PRINCE);}
     public void servoPuff(double pos) {
         servo.setPosition(pos);
