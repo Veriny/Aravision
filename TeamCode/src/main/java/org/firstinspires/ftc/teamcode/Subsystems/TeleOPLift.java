@@ -32,11 +32,13 @@ public class TeleOPLift {
             }
         }
     }
-    public void up(){ lyft.setPower(LIFT_POWER);
+    public void up(){ lyft.setPower(-LIFT_POWER);
     uber.setPower(LIFT_POWER);}
-    public void down() { lyft.setPower(-LIFT_POWER);
-    uber.setPower(-LIFT_POWER);}
-    public void off() {lyft.setPower(SHHHHHHH_GOODNIGHT_SWEET_PRINCE);}
+    public void down() { lyft.setPower(LIFT_POWER);
+    uber.setPower(-LIFT_POWER);}//uber.setPower(-LIFT_POWER);}
+    public void off() {lyft.setPower(SHHHHHHH_GOODNIGHT_SWEET_PRINCE);
+    uber.setPower(SHHHHHHH_GOODNIGHT_SWEET_PRINCE);
+    }
     public void servoPuff(double pos) {
         servo.setPosition(pos);
         while (servo.getPosition() != pos) {}

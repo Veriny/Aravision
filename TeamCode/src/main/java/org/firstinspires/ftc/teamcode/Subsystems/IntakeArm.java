@@ -22,30 +22,35 @@ public class IntakeArm {
     }
 
     public void c(Gamepad p) {
-        if(p.a && !p.b) {
-            yeet();
-            resetEncoders();
-        } else if (p.b) {
-            yoink();
-            resetEncoders();
-        }
+//        if(p.a && !p.b) {
+//            yeet();
+//            resetEncoders();
+//        } else if (p.b) {
+//            yoink();
+//            resetEncoders();
+//        }
         if(p.x && !p.y) boi();
         else if (p.y) buddy();
+        if (p.a) yeet();
+        else if (p.b)yoink();
+        else PseudoServo.setPower(0);
     }
 
     public void yeet(){
-        if (!PseudoServo.isBusy()){
-            PseudoServo.setTargetPosition((int) TICKS);
-            PseudoServo.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            PseudoServo.setPower(POWER);
-        }
+        PseudoServo.setPower(1);
+//        if (!PseudoServo.isBusy()){
+//            PseudoServo.setTargetPosition((int) TICKS);
+//            PseudoServo.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            PseudoServo.setPower(POWER);
+//        }
     }
     public void yoink(){
-        if (!PseudoServo.isBusy()){
-            PseudoServo.setTargetPosition((int) TICKS);
-            PseudoServo.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            PseudoServo.setPower(-POWER);
-        }
+        PseudoServo.setPower(-1);
+//        if (!PseudoServo.isBusy()){
+//            PseudoServo.setTargetPosition((int) TICKS);
+//            PseudoServo.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            PseudoServo.setPower(-POWER);
+//        }
     }
     public void boi(){
         s.setPosition(MAX_POS);
